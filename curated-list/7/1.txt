@@ -1,0 +1,8 @@
+https://player.vimeo.com/external/360259369.hd.mp4?s=b39c8cc9fe91a0bab48daa31132d209a893c1dfb&profile_id=175,18
+,13
+,5
+https://player.vimeo.com/external/231234700.hd.mp4?s=00839cba0de2908bfe5011cf652a4e4dea227b01&profile_id=175,57
+https://player.vimeo.com/external/664328102.hd.mp4?s=a1d729421a662764c73e8c5f15b729f7f18ec2d2&profile_id=175&oauth_token_id=1027659655,9
+https://player.vimeo.com/external/459598270.hd.mp4?s=2dc6a2e6fbdb6c929f4bcf388a3b5e0bdd23c812&profile_id=172,11
+https://player.vimeo.com/progressive_redirect/playback/667563030/rendition/1080p?loc=external&oauth2_token_id=1027659655&signature=c17cc2c8a4c21e10c4088c5d5f423f14a1541db9a8a2d4da41b42f98b84d9936,20
+https://player.vimeo.com/progressive_redirect/playback/537966360/rendition/1080p?loc=external&oauth2_token_id=1027659655&signature=25d8100b87ff0a59e9d86de3b49030dc4dafeb36234d0dfb419f3fac46b0d8c7,6

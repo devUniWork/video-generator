@@ -1,0 +1,5 @@
+/index.ts
+.env
+.idea
+node_modules
+.DS_Store

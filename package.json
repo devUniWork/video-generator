@@ -1,0 +1,30 @@
+{
+  "name": "cypress-scraper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy": "node_modules/.bin/cypress open --env host=",
+    "cy-headless": "node_modules/.bin/cypress run",
+    "start": "ts-node index.ts"
+  },
+  "author": "devinreeks",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "compromise": "^14.0.0",
+    "cypress": "^9.5.2",
+    "fluent-ffmpeg": "^2.1.2",
+    "get-audio-duration": "^3.0.1",
+    "gtts": "^0.2.1",
+    "openai-api": "^1.2.6",
+    "random-reddit": "^2.0.3",
+    "random-words": "^1.1.2",
+    "snoowrap": "^1.23.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.2"
+  }
+}
