@@ -6,7 +6,7 @@ return(
 <Composition
 id='HelloWorld'
 component={VideoPlayer}
-durationInFrames={2610}
+durationInFrames={3660}
 fps={30}
 width={1920}
 height={1080}

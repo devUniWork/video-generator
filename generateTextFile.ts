@@ -4,12 +4,12 @@ export default class GenerateTextFile {
     }
 
     public splitTextFile(): string[] {
-        const str = fs.readFileSync(`./story-text/${this.getLatestStory()}/1.txt`);
-        return this.yourSplit(10, str.toString())
+        const str = fs.readFileSync(`./whole-story-text/${this.getLatestStory()}/1.txt`);
+        return this.yourSplit(10, str.toString().replace(/\'/g, ''))
     }
 
     public getLatestStory(): number {
-        return fs.readdirSync('./story-text').length;
+        return fs.readdirSync('./whole-story-text').length;
     }
 
     public yourSplit (N,string) {
