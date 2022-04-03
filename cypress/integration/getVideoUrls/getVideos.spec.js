@@ -18,11 +18,10 @@ describe('Get Video', () => {
   })
 
   it('get this ', () => {
-     const feature = 5;
     // const e = fs.readFileSync(`./curated-list/${feature}/1.txt`)
     // console.log(e.toString().split("\n"));
 
-    cy.readFile(`./curated-list/${feature}/1.txt`).then((fileUrl) => {
+    cy.readFile(`./curated-list/${Cypress.env('fileUpto')}/1.txt`).then((fileUrl) => {
       const c = fileUrl.split('\n')
         // read in file list and write next file name as file i.e. 1, 2, 3... etc.
         c.forEach((item) => {
@@ -35,23 +34,14 @@ describe('Get Video', () => {
                    console.log('below')
                    console.log(updatedUrl.redirects.toString().split(' ')[1]);
                    console.log('above')
-                   cy.writeFile('./random-video-links/te.txt', updatedUrl.redirects.toString().split(' ')[1] + ',' + item.split(',')[1] + '\n', { flag: 'a+', timeout: 30000 });
+                   cy.writeFile(`./random-video-links/${Cypress.env('fileUpto')}/1.txt`, updatedUrl.redirects.toString().split(' ')[1] + ',' + item.split(',')[1] + '\n', { flag: 'a+', timeout: 120000 });
                 })
             }
         })
-      // cy.request({
-      //   url: fileUrl,
-      //   method: 'GET'
-      // }).then((updatedUrl) => {
-      //    console.log('below')
-      //    console.log(updatedUrl.redirects.toString().split(' '));
-      //    console.log('above')
-      //    cy.writeFile('./random-video-links/te.txt', updatedUrl.redirects.toString().split(' ')[1]);
-      // })
     })
   })
     after(() => {
         // pass duration here.
-        cy.exec(`ts-node generateTemplates.ts ${Cypress.env('duration')}`)
+        cy.exec(`ts-node generateTemplates.ts ${Cypress.env('duration')}`, { timeout: 120000 })
     })
 })

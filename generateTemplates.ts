@@ -15,13 +15,17 @@ class GenerateTemplates {
         return parseInt(process.argv.slice(2).toString(), 10);
     }
 
+    public getLinksFolder(): number {
+        return fs.readdirSync('./random-video-links').length;
+    }
+
     public generateCompositionTemplate(){
         const compositionTemplate = CompositionTemplateFile(this.getDuration());
         fs.writeFileSync('./output-video-template/composition-files.tsx', compositionTemplate);
     }
 
     public generateVideoTemplate() {
-        const procesedVideoLinks = fs.readFileSync('./random-video-links/te.txt')
+        const procesedVideoLinks = fs.readFileSync(`./random-video-links/${this.getLinksFolder()}/1.txt`)
         let vidTemplates = [];
 
         procesedVideoLinks.toString().split('\n').forEach((line) => {

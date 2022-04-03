@@ -4,22 +4,43 @@ import randomWords from "random-words";
 const getRandomInt = (max) => {
     return Math.floor(Math.random() * max);
 }
-
+let listVids = [];
 const enoughVideos = async (listVideos, durationOfAudio) => {
-    let newList = listVideos;
     const t = await getVideo(randomWords())
-    const duration = newList.reduce((currentValue, previousValue) => ({duration: currentValue.duration + previousValue.duration}));
-    if(duration.duration > durationOfAudio) {
-        if((duration.duration - durationOfAudio) < 40) {
-          return newList
+    if(listVideos) {
+        let newList = listVideos;
+        if(t !== undefined) {
+            listVids = [...listVideos, ...t];
+        } else {
+            const y = await getVideo(randomWords())
+            enoughVideos(y, durationOfAudio)
         }
-          newList.pop();
-          return enoughVideos(newList, durationOfAudio);
-    }
-    const c = [t[getRandomInt(t.length)], ...newList]
 
-    // this is where we can do a call to get more video.
-    return  enoughVideos(c, durationOfAudio);
+
+        console.log(listVids)
+        const duration = listVids.reduce((currentValue, previousValue) => ({duration: currentValue?.duration + previousValue?.duration}), {duration: 0});
+        console.log('below')
+        console.log(duration.duration)
+        console.log(durationOfAudio);
+        console.log('above')
+
+        if(duration.duration > durationOfAudio) {
+            if((duration.duration - durationOfAudio) < 220) {
+                return listVids
+            }
+            listVids.pop();
+            return enoughVideos(newList, durationOfAudio);
+        }
+        const c = [t[getRandomInt(t.length)], ...newList]
+        listVids = [...listVideos, ...c];
+        // this is where we can do a call to get more video.
+        return  enoughVideos(c, durationOfAudio);
+    } else {
+        const t = await getVideo(randomWords())
+        listVids = [...listVideos, ...t];
+        enoughVideos(t, durationOfAudio);
+    }
+
 }
 
 export default enoughVideos;

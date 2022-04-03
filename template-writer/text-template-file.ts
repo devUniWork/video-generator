@@ -34,14 +34,14 @@ const TextTemplate = (text: string[]) => {
                           "paddingRight: 10,\n" +
                           "transform:" + "`" + "scale(" + "$" + "{" + "spring" + "({\n" +
                             "fps: 30,\n" +
-                            "frame: -1* (" + `${z * 100}` + "- (frame - i * 5)),\n" +
+                            "frame: -1* (" + `${z * 120}` + "- (frame - i * 5)),\n" +
                             "config: {\n" +
                             "damping: 100,\n" +
                             "stiffness: 200,\n" +
                             "mass: 0.5,\n" +
                               "}\n" +
                             "})})" + "`,\n" +
-                            "marginBottom: 25,\n" +
+                            "marginBottom: 85,\n" +
                             "display: 'inline-block'\n" +
                             "}}\n" +
                               '>' +
@@ -59,7 +59,7 @@ const TextTemplate = (text: string[]) => {
         "return " + "(\n" +
                 "<>\n" +
             `${text.map((textLine, i) => {
-                return "<Sequence from={" + i * 100 +"} durationInFrames={100}>" +
+                return "<Sequence from={" + i * 120 +"} durationInFrames={120}>" +
                 "{" + "val"+i + "(" + ")" + "}" + "\n" +
                 "</Sequence>\n"
             }).join('')}\n` +
