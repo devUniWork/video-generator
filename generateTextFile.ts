@@ -5,7 +5,7 @@ export default class GenerateTextFile {
 
     public splitTextFile(): string[] {
         const str = fs.readFileSync(`./whole-story-text/${this.getLatestStory()}/1.txt`);
-        return this.yourSplit(10, str.toString().replace(/\'/g, ''))
+        return this.yourSplit(4, str.toString().replace(/\'/g, ''))
     }
 
     public getLatestStory(): number {

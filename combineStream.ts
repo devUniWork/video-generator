@@ -1,12 +1,12 @@
 import fs from 'fs';
 import ffmpeg from "fluent-ffmpeg";
 
-const combinedStreams = (dir, latestFile, feature) => {
+const combinedStreams = (dir, latestFile, feature, numberOfFiles) => {
     return new Promise((resolve, reject) => {
         let files = []
-        fs.readdirSync(`${dir}`).forEach(file => {
-            files.push(`${dir}/${file}`)
-        });
+        for(let i = 0; i < numberOfFiles; i++) {
+            files.push(`${dir}/${i}.mp3`)
+        }
         const combiner = ffmpeg().on("error", err => {
             console.error("An error occurred: " + err.message);
         })

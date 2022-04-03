@@ -6,7 +6,7 @@ export interface VideoList {
 
 const VideoTemplate = (videoList: VideoList[], audioFilePath: string) => {
     return "import {AbsoluteFill} from 'remotion';\n" +
-    "import {Video} from 'remotion';\n" +
+    "import {Video, Audio} from 'remotion';\n" +
     "import TransitionSeries from 'remotion-transition-series';\n" +
     "import {TextRead} from './text';\n" +
      `import audio from '${audioFilePath}'\n`   +
@@ -20,7 +20,7 @@ const VideoTemplate = (videoList: VideoList[], audioFilePath: string) => {
           ${videoList.map((videoUrl: VideoList) => {
               return "<TransitionSeries.Sequence" + " durationInFrames=" + '{' + `${videoUrl.duration}` + '}' + '>' + '\n' +
                   "<AbsoluteFill>" + '\n' +
-                  "<Video volume=" + "{" + 0 + "}" + "src=" + "'" + `${videoUrl.url}` + "'" + "/>" + '\n' +
+                  "<Video volume=" + "{" + 0 + "} " + "src=" + "'" + `${videoUrl.url}` + "'" + "/>" + '\n' +
                   "</AbsoluteFill>" + '\n' +
               "</TransitionSeries.Sequence>" + '\n' +
               "<TransitionSeries.Transition " + '\n' +
